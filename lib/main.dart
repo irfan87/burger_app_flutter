@@ -1,3 +1,4 @@
+import 'package:burger_app_flutter/burger_page.dart';
 import 'package:burger_app_flutter/burgers_list.dart';
 import 'package:burger_app_flutter/categories.dart';
 import 'package:burger_app_flutter/header.dart';
@@ -13,6 +14,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Burger(),
+      routes: {
+        BurgerPage.tag: (_) => BurgerPage(),
+      },
       theme: ThemeData(
         appBarTheme: AppBarTheme(
           color: Colors.teal,
@@ -56,7 +60,12 @@ class _BurgerState extends State<Burger> {
           ),
           Header(),
           Categories(),
-          BurgersList(),
+          BurgersList(
+            row: 1,
+          ),
+          BurgersList(
+            row: 2,
+          ),
         ],
       ),
       extendBody: true,

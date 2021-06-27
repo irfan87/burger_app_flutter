@@ -1,7 +1,12 @@
+import 'package:burger_app_flutter/burger_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class BurgersList extends StatefulWidget {
+  final int row;
+
+  BurgersList({required this.row});
+
   @override
   _BurgersListState createState() => _BurgersListState();
 }
@@ -23,13 +28,14 @@ class _BurgersListState extends State<BurgersList> {
 
     return SliverToBoxAdapter(
       child: Container(
-        height: 240.0,
+        height: widget.row == 2 ? 330.0 : 240.0,
         margin: EdgeInsets.only(
           top: 10.0,
         ),
         child: ListView.builder(
           itemBuilder: (context, index) {
-            bool reverse = index.isEven;
+            bool reverse = widget.row == 2 ? index.isEven : index.isOdd;
+
             return Stack(
               children: [
                 Container(
@@ -47,7 +53,7 @@ class _BurgersListState extends State<BurgersList> {
                         child: Column(
                           children: [
                             Text(
-                              "Burger $index",
+                              reverse ? "Chicken Burger" : "Bacon Burger",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 20.0,
@@ -93,7 +99,7 @@ class _BurgersListState extends State<BurgersList> {
                       ),
                     ),
                     onTap: () {
-                      // TODO: NAVIGATOR
+                      Navigator.of(context).pushNamed(BurgerPage.tag);
                     },
                   ),
                 ),
@@ -101,7 +107,7 @@ class _BurgersListState extends State<BurgersList> {
                   top: reverse ? 75.0 : 50.0,
                   child: GestureDetector(
                     onTap: () {
-                      // TODO: NAVIGATOR
+                      Navigator.of(context).pushNamed(BurgerPage.tag);
                     },
                     child:
                         reverse ? chickenBurgerImage : baconCheeseBurgerImage,
