@@ -16,7 +16,7 @@ class _CategoriesState extends State<Categories> {
       child: Container(
         height: 100.0,
         margin: EdgeInsets.only(
-          top: 10.0,
+          top: 10,
         ),
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
