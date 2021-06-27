@@ -44,6 +44,19 @@ class _BurgerState extends State<Burger> {
             ],
           ),
           Header(),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                Text(
+                  "Crabby Patty",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 300.0,
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

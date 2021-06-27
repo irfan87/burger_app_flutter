@@ -18,78 +18,112 @@ class _HeaderState extends State<Header> {
         [
           Stack(
             children: [
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 15.0,
-                ),
-                height: calHeaderHeight,
-                decoration: const BoxDecoration(
-                  color: Colors.teal,
-                  borderRadius: BorderRadius.vertical(
-                    bottom: Radius.circular(45.0),
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      offset: Offset(0, 0),
-                      blurRadius: 2.5,
+              Column(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 15.0,
                     ),
-                  ],
-                ),
-                child: Column(
-                  children: [
-                    const SizedBox(
-                      height: 20.0,
+                    height: calHeaderHeight,
+                    decoration: const BoxDecoration(
+                      color: Colors.teal,
+                      borderRadius: BorderRadius.vertical(
+                        bottom: Radius.circular(45.0),
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          offset: Offset(0, 0),
+                          blurRadius: 2.5,
+                        ),
+                      ],
                     ),
-                    Row(
+                    child: Column(
                       children: [
-                        CircleAvatar(
-                          backgroundColor: Colors.white70,
-                          radius: 35.0,
-                          child: CircleAvatar(
-                            backgroundImage: AssetImage("images/white_cat.png"),
-                            radius: 30.0,
-                          ),
+                        const SizedBox(
+                          height: 20.0,
                         ),
-                        SizedBox(
-                          width: 5.0,
-                        ),
-                        Column(
+                        Row(
                           children: [
+                            CircleAvatar(
+                              backgroundColor: Colors.white70,
+                              radius: 35.0,
+                              child: CircleAvatar(
+                                backgroundImage:
+                                    AssetImage("images/white_cat.png"),
+                                radius: 30.0,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 5.0,
+                            ),
+                            Column(
+                              children: [
+                                Text(
+                                  "John Doe",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18.0,
+                                  ),
+                                ),
+                                Container(
+                                  padding: EdgeInsets.all(5.0),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20.0),
+                                    color: Colors.black54,
+                                  ),
+                                  child: Text(
+                                    "Gold Member",
+                                    style: TextStyle(
+                                      color: Colors.yellow[700],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Spacer(),
                             Text(
-                              "John Doe",
+                              "154 \$ CAN",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 18.0,
                               ),
                             ),
-                            Container(
-                              padding: EdgeInsets.all(5.0),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20.0),
-                                color: Colors.black54,
-                              ),
-                              child: Text(
-                                "Gold Member",
-                                style: TextStyle(
-                                  color: Colors.yellow[700],
-                                ),
-                              ),
-                            ),
                           ],
-                        ),
-                        Spacer(),
-                        Text(
-                          "154 \$ CAN",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18.0,
-                          ),
                         ),
                       ],
                     ),
-                  ],
+                  ),
+                  SizedBox(
+                    height: 20.0,
+                  ),
+                ],
+              ),
+              Positioned(
+                bottom: 0.0,
+                child: Container(
+                  height: 50.0,
+                  width: size.width,
+                  child: Card(
+                    elevation: 3.0,
+                    margin: EdgeInsets.symmetric(
+                      horizontal: 50.0,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        labelText: "What do you want to eat?",
+                        suffixIcon: Icon(
+                          Icons.search,
+                        ),
+                        contentPadding: EdgeInsets.only(left: 20.0),
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ],
