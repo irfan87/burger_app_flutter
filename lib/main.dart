@@ -1,3 +1,4 @@
+import 'package:burger_app_flutter/burgers_list.dart';
 import 'package:burger_app_flutter/categories.dart';
 import 'package:burger_app_flutter/header.dart';
 import 'package:flutter/material.dart';
@@ -18,9 +19,11 @@ class MyApp extends StatelessWidget {
           centerTitle: true,
         ),
         bottomAppBarColor: Colors.teal,
+        cardColor: Colors.white,
         floatingActionButtonTheme: FloatingActionButtonThemeData(
           backgroundColor: Colors.orange,
         ),
+        primaryColor: Colors.teal,
       ),
     );
   }
@@ -53,19 +56,7 @@ class _BurgerState extends State<Burger> {
           ),
           Header(),
           Categories(),
-          SliverList(
-            delegate: SliverChildListDelegate(
-              [
-                Text(
-                  "Crabby Patty",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 300.0,
-                  ),
-                ),
-              ],
-            ),
-          ),
+          BurgersList(),
         ],
       ),
       extendBody: true,
