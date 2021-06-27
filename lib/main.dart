@@ -18,6 +18,10 @@ class MyApp extends StatelessWidget {
           color: Colors.teal,
           centerTitle: true,
         ),
+        bottomAppBarColor: Colors.teal,
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor: Colors.orange,
+        ),
       ),
     );
   }
@@ -37,10 +41,15 @@ class _BurgerState extends State<Burger> {
           SliverAppBar(
             title: const Text("Deliver Me"),
             pinned: true,
-            leading: IconButton(icon: const Icon(Icons.menu), onPressed: () {}),
+            leading: IconButton(
+              icon: const Icon(Icons.menu),
+              onPressed: () {},
+            ),
             actions: [
               IconButton(
-                  icon: const Icon(Icons.shopping_cart), onPressed: () {}),
+                icon: const Icon(Icons.shopping_cart),
+                onPressed: () {},
+              ),
             ],
           ),
           Header(),
@@ -58,6 +67,43 @@ class _BurgerState extends State<Burger> {
             ),
           ),
         ],
+      ),
+      extendBody: true,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.home),
+      ),
+      bottomNavigationBar: ClipRRect(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(45)),
+        child: Container(
+          color: Colors.black12,
+          child: BottomAppBar(
+            shape: CircularNotchedRectangle(),
+            child: Row(
+              children: [
+                Spacer(),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.add_alert,
+                  ),
+                  color: Colors.white,
+                ),
+                Spacer(),
+                Spacer(),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.turned_in,
+                  ),
+                  color: Colors.white,
+                ),
+                Spacer(),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
