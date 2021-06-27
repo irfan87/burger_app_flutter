@@ -1,3 +1,4 @@
+import 'package:burger_app_flutter/categories.dart';
 import 'package:burger_app_flutter/header.dart';
 import 'package:flutter/material.dart';
 
@@ -6,8 +7,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -53,6 +52,7 @@ class _BurgerState extends State<Burger> {
             ],
           ),
           Header(),
+          Categories(),
           SliverList(
             delegate: SliverChildListDelegate(
               [

@@ -11,7 +11,7 @@ class _HeaderState extends State<Header> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    double calHeaderHeight = size.height / 5.0;
+    double calHeaderHeight = size.height / 5;
 
     return SliverList(
       delegate: SliverChildListDelegate(
