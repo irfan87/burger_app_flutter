@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.orange,
         ),
         primaryColor: Colors.teal,
+        canvasColor: Colors.teal,
       ),
     );
   }
@@ -42,6 +43,7 @@ class _BurgerState extends State<Burger> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(240, 240, 240, 1),
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
