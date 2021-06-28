@@ -75,7 +75,10 @@ class _BurgerState extends State<Burger> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        child: Icon(Icons.home),
+        child: Icon(
+          Icons.home,
+          color: Colors.white,
+        ),
       ),
       bottomNavigationBar: ClipRRect(
         borderRadius: BorderRadius.vertical(top: Radius.circular(45)),
