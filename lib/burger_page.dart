@@ -14,13 +14,16 @@ class _BurgerPageState extends State<BurgerPage> {
   );
 
   Widget baconCheeseBurgerImage = Container(
-    height: 160.0,
+    height: 135.0,
     child: Image.asset("images/bacon_cheeseburger.png"),
   );
+
+  int burgerQuantity = 0;
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    Object? nameArgument = ModalRoute.of(context)?.settings.arguments;
 
     return Scaffold(
       appBar: AppBar(
@@ -56,7 +59,7 @@ class _BurgerPageState extends State<BurgerPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Chicken Burger",
+                  nameArgument.toString(),
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20.0,
@@ -75,7 +78,9 @@ class _BurgerPageState extends State<BurgerPage> {
                 ),
                 Row(
                   children: [
-                    chickenBurgerImage,
+                    nameArgument == "Chicken Burger"
+                        ? chickenBurgerImage
+                        : baconCheeseBurgerImage,
                     Spacer(),
                     Column(
                       children: [
@@ -194,15 +199,19 @@ class _BurgerPageState extends State<BurgerPage> {
                             children: [
                               IconButton(
                                 onPressed: () {
-                                  // WILL BE A REMOVE FUNCTION
+                                  setState(() {
+                                    burgerQuantity--;
+                                  });
                                 },
                                 icon: Icon(Icons.remove_circle),
                                 color: Theme.of(context).colorScheme.secondary,
                               ),
-                              Text("4"),
+                              Text(burgerQuantity.toString()),
                               IconButton(
                                 onPressed: () {
-                                  // WILL BE AN ADD FUNCTION
+                                  setState(() {
+                                    burgerQuantity++;
+                                  });
                                 },
                                 icon: Icon(Icons.add_circle),
                                 color: Theme.of(context).colorScheme.secondary,

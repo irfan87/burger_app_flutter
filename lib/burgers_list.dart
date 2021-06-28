@@ -99,7 +99,10 @@ class _BurgersListState extends State<BurgersList> {
                       ),
                     ),
                     onTap: () {
-                      Navigator.of(context).pushNamed(BurgerPage.tag);
+                      Navigator.of(context).pushNamed(
+                        BurgerPage.tag,
+                        arguments: reverse ? "Chicken Burger" : "Bacon Burger",
+                      );
                     },
                   ),
                 ),
@@ -107,7 +110,10 @@ class _BurgersListState extends State<BurgersList> {
                   top: reverse ? 75.0 : 50.0,
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.of(context).pushNamed(BurgerPage.tag);
+                      Navigator.of(context).pushNamed(
+                        BurgerPage.tag,
+                        arguments: reverse ? "Chicken Burger" : "Bacon Burger",
+                      );
                     },
                     child:
                         reverse ? chickenBurgerImage : baconCheeseBurgerImage,
