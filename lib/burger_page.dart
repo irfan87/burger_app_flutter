@@ -1,3 +1,4 @@
+import 'package:burger_app_flutter/burgers_mini_list.dart';
 import 'package:flutter/material.dart';
 
 class BurgerPage extends StatefulWidget {
@@ -183,7 +184,7 @@ class _BurgerPageState extends State<BurgerPage> {
                     ),
                   ),
                   Spacer(),
-                  // Burger Row
+                  BurgersMiniList(),
                   Padding(
                     padding: const EdgeInsets.all(15.0),
                     child: Row(
