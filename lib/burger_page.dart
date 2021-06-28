@@ -20,6 +20,8 @@ class _BurgerPageState extends State<BurgerPage> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -127,6 +129,116 @@ class _BurgerPageState extends State<BurgerPage> {
             ),
           ),
         ],
+      ),
+      bottomSheet: BottomSheet(
+        backgroundColor: Colors.teal,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(45),
+          ),
+        ),
+        onClosing: () {},
+        builder: (context) {
+          return ClipRRect(
+            borderRadius: BorderRadius.vertical(
+              top: Radius.circular(45),
+            ),
+            child: Container(
+              width: size.width,
+              height: size.height / 1.6,
+              color: Color.fromRGBO(240, 240, 240, 1),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(
+                      left: 30,
+                      right: 30,
+                      top: 30,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Description",
+                          style: TextStyle(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 28.0,
+                        ),
+                        Text(
+                          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Purus gravida quis blandit turpis cursus. In metus vulputate eu scelerisque felis imperdiet proin fermentum. Amet volutpat consequat mauris nunc congue nisi vitae suscipit tellus. Diam maecenas sed enim ut sem viverra aliquet eget.",
+                          style: TextStyle(
+                            fontSize: 14.0,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Spacer(),
+                  // Burger Row
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Row(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.all(5.0),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(45),
+                            color:
+                                Theme.of(context).primaryColor.withOpacity(.2),
+                          ),
+                          child: Row(
+                            children: [
+                              IconButton(
+                                onPressed: () {
+                                  // WILL BE A REMOVE FUNCTION
+                                },
+                                icon: Icon(Icons.remove_circle),
+                                color: Theme.of(context).colorScheme.secondary,
+                              ),
+                              Text("4"),
+                              IconButton(
+                                onPressed: () {
+                                  // WILL BE AN ADD FUNCTION
+                                },
+                                icon: Icon(Icons.add_circle),
+                                color: Theme.of(context).colorScheme.secondary,
+                              ),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Container(
+                            height: 45.0,
+                            padding: EdgeInsets.symmetric(horizontal: 5.0),
+                            child: MaterialButton(
+                              color: Theme.of(context).colorScheme.secondary,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(45.0),
+                              ),
+                              onPressed: () {},
+                              child: Text(
+                                "Order",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20.0,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }
