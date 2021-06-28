@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
         BurgerPage.tag: (_) => BurgerPage(),
       },
       theme: ThemeData(
+        accentColor: Colors.orange,
         appBarTheme: AppBarTheme(
           color: Colors.teal,
           centerTitle: true,
