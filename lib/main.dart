@@ -3,6 +3,7 @@ import 'package:burger_app_flutter/burgers_list.dart';
 import 'package:burger_app_flutter/categories.dart';
 import 'package:burger_app_flutter/header.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,6 +12,11 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // for android
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(statusBarColor: Colors.transparent),
+    );
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Burger(),
@@ -18,6 +24,7 @@ class MyApp extends StatelessWidget {
         BurgerPage.tag: (_) => BurgerPage(),
       },
       theme: ThemeData(
+        brightness: Brightness.light,
         accentColor: Colors.orange,
         appBarTheme: AppBarTheme(
           color: Colors.teal,
@@ -25,6 +32,21 @@ class MyApp extends StatelessWidget {
         ),
         bottomAppBarColor: Colors.teal,
         cardColor: Colors.white,
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor: Colors.orange,
+        ),
+        primaryColor: Colors.teal,
+        canvasColor: Colors.teal,
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        accentColor: Colors.orange,
+        appBarTheme: AppBarTheme(
+          color: Colors.teal,
+          centerTitle: true,
+        ),
+        bottomAppBarColor: Colors.teal,
+        cardColor: Color.fromRGBO(20, 20, 20, 1),
         floatingActionButtonTheme: FloatingActionButtonThemeData(
           backgroundColor: Colors.orange,
         ),
@@ -43,8 +65,12 @@ class Burger extends StatefulWidget {
 class _BurgerState extends State<Burger> {
   @override
   Widget build(BuildContext context) {
+    bool lightMode = Theme.of(context).brightness == Brightness.light;
+
     return Scaffold(
-      backgroundColor: Color.fromRGBO(240, 240, 240, 1),
+      backgroundColor: lightMode
+          ? Color.fromRGBO(240, 240, 240, 1)
+          : Color.fromRGBO(35, 35, 35, 1),
       body: CustomScrollView(
         slivers: [
           SliverAppBar(

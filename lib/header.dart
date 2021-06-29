@@ -12,6 +12,7 @@ class _HeaderState extends State<Header> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     double calHeaderHeight = size.height / 5;
+    bool lightMode = Theme.of(context).brightness == Brightness.light;
 
     return SliverList(
       delegate: SliverChildListDelegate(
@@ -106,6 +107,8 @@ class _HeaderState extends State<Header> {
                   height: 50.0,
                   width: size.width,
                   child: Card(
+                    color:
+                        lightMode ? Colors.white : Theme.of(context).cardColor,
                     elevation: 3.0,
                     margin: EdgeInsets.symmetric(
                       horizontal: 50.0,
@@ -119,6 +122,7 @@ class _HeaderState extends State<Header> {
                         labelText: "What do you want to eat?",
                         suffixIcon: Icon(
                           Icons.search,
+                          color: lightMode ? Colors.black54 : Colors.white60,
                         ),
                         contentPadding: EdgeInsets.only(left: 20.0),
                       ),
