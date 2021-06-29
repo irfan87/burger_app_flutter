@@ -25,6 +25,7 @@ class _BurgerPageState extends State<BurgerPage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     Object? nameArgument = ModalRoute.of(context)?.settings.arguments;
+    bool lightMode = Theme.of(context).brightness == Brightness.light;
 
     return Scaffold(
       appBar: AppBar(
@@ -152,7 +153,9 @@ class _BurgerPageState extends State<BurgerPage> {
             child: Container(
               width: size.width,
               height: size.height / 1.6,
-              color: Color.fromRGBO(240, 240, 240, 1),
+              color: lightMode
+                  ? Color.fromRGBO(240, 240, 240, 1)
+                  : Color.fromRGBO(20, 20, 20, 1),
               child: Column(
                 children: [
                   Padding(

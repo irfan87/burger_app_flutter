@@ -11,6 +11,7 @@ class _CategoriesState extends State<Categories> {
   @override
   Widget build(BuildContext context) {
     int items = 10;
+    bool lightMode = Theme.of(context).brightness == Brightness.light;
 
     return SliverToBoxAdapter(
       child: Container(
@@ -40,13 +41,19 @@ class _CategoriesState extends State<Categories> {
                       },
                       child: Card(
                         color: index == currentSelectedItem
-                            ? Colors.black.withOpacity(0.7)
-                            : Colors.white,
+                            ? lightMode
+                                ? Colors.black.withOpacity(0.7)
+                                : Colors.teal
+                            : lightMode
+                                ? Colors.white
+                                : Theme.of(context).cardColor,
                         child: Icon(
                           Icons.fastfood,
                           color: index == currentSelectedItem
                               ? Colors.white
-                              : Colors.black.withOpacity(0.7),
+                              : lightMode
+                                  ? Colors.black.withOpacity(0.7)
+                                  : Colors.white,
                         ),
                         elevation: 3.0,
                         margin: EdgeInsets.all(10.0),
